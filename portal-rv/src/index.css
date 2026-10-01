@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+
+  /* Cores primárias — identidade Desktop */
+  --color-brand-maroon: #531110;
+  --color-brand-red: #ae2e2a;
+  --color-brand-gold: #f4ba44;
+  --color-brand-rust: #a8372c;
+  --color-brand-rustdark: #6c1b0b;
+
+  /* Cores secundárias */
+  --color-brand-charcoal: #35302d;
+  --color-brand-dark: #292522;
+  --color-brand-cream: #e5e1cf;
+  --color-brand-beige: #cfcbbb;
+  --color-brand-graylight: #e6e6e6;
+  --color-brand-orange: #d47120;
+  --color-brand-darkred: #9d2926;
+  --color-brand-amber: #dca83d;
+
+  /* Semânticas de status */
+  --color-status-success: #2f8a52;
+  --color-status-success-bg: #e9f3ec;
+  --color-status-warning: #b9821f;
+  --color-status-warning-bg: #fbf1dd;
+  --color-status-danger: #ae2e2a;
+  --color-status-danger-bg: #fbebea;
+
+  --shadow-card: 0 1px 2px rgba(41, 37, 34, 0.04), 0 8px 24px -12px rgba(41, 37, 34, 0.12);
+  --shadow-card-hover: 0 2px 4px rgba(41, 37, 34, 0.06), 0 16px 32px -16px rgba(41, 37, 34, 0.18);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background: #f7f6f2;
+    color: var(--color-brand-dark);
+    font-family: var(--font-sans);
+  }
+
+  #root {
+    min-height: 100svh;
+  }
+}
+
+@layer utilities {
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, var(--color-brand-rust) 0%, var(--color-brand-rustdark) 100%);
+  }
+
+  .bg-hero-gradient {
+    background: linear-gradient(160deg, var(--color-brand-maroon) 0%, var(--color-brand-red) 55%, var(--color-brand-rust) 100%);
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: var(--color-brand-beige);
+    border-radius: 999px;
+  }
+}

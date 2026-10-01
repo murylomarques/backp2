@@ -1,0 +1,237 @@
+Olá, pessoal.
+
+Gostaria de solicitar os SELECTs mencionados no anexo e relacionados abaixo, necessários para que o meu fluxo de geração de relatórios e disparos de mensagens aos clientes funcione de forma eficiente e alinhada às necessidades da operação.
+Essas consultas são importantes para garantir que os dados utilizados no processo estejam corretos, atualizados e disponíveis de forma adequada, contribuindo para a automação e a eficiência do fluxo operacional.
+Conto com o apoio de vocês para disponibilizarem os SELECTs ou, caso necessário, alinharmos os ajustes necessários para viabilizar esse processo.
+
+Obrigado pelo apoio!
+Atenciosamente,
+Daniel
+
+
+
+
+
+============================================================
+1.	ASSET
+============================================================
+
+Campos:
+
+Id
+Name
+LastModifiedDate
+CreatedDate
+vlocity_cmt__ActivationDate__c
+vlocity_cmt__ConnectDate__c
+PurchaseDate
+ManufactureDate
+UsageEndDate
+vlocity_cmt__DisconnectDate__c
+vlocity_cmt__CatalogItemReferenceDateTime__c
+ProdutoAuxiliar__c
+ProjetoCTO__c
+Tecnologia__c
+Plan__c
+CTO__c
+PortaCTO__c
+SiglaCTO__c
+SystemModstamp
+Consulta utilizada:
+SELECT [CAMPOS]
+FROM Asset
+WHERE CreatedDate >= {created_date_filter}
+AND SystemModstamp > {window_start}
+AND SystemModstamp <= {window_end}
+ORDER BY SystemModstamp ASC;
+============================================================
+2. WORKORDER
+Campos:
+
+Id
+AccountId
+AssetId
+CaseId
+ContactId
+CreatedById
+ServiceTerritoryId
+WorkOrderNumber
+Telefone_do_Caso__c
+Phone__c
+Telefone_para_contato__c
+Street
+PostalCode
+Work_Type_WO__c
+Work_Subtype_WO__c
+Region__c
+Status
+CaseStatus__c
+CreatedDate
+LastModifiedDate
+DataAgendamento__c
+SACompletedData__c
+SuspensionReasonWo__c
+ReasonForCancellationWorkOrder__c
+LastModifiedById
+ReasonReschedulingSA__c
+SignalStrenght__c
+Priority
+CTO__c
+Porta__c
+OLT__c
+Prospect__c
+Cliente_Conectado__c
+SystemModstamp
+Consulta utilizada:
+SELECT [CAMPOS]
+FROM WorkOrder
+WHERE CreatedDate >= {created_date_filter}
+AND SystemModstamp > {window_start}
+AND SystemModstamp <= {window_end}
+ORDER BY SystemModstamp ASC;
+============================================================
+3. CONTACT
+Campos:
+Id
+AssistantPhone
+Fax
+HomePhone
+MobilePhone
+OtherPhone
+OtherPhone__c
+Phone
+Name
+Whatsapp__c
+SystemModstamp
+Consulta utilizada:
+SELECT [CAMPOS]
+FROM Contact
+WHERE CreatedDate >= {created_date_filter}
+AND SystemModstamp > {window_start}
+AND SystemModstamp <= {window_end}
+ORDER BY SystemModstamp ASC;
+============================================================
+4. ACCOUNT
+Campos:
+Id
+LegacyId__c
+Name
+SystemModstamp
+Consulta utilizada:
+SELECT [CAMPOS]
+FROM Account
+WHERE CreatedDate >= {created_date_filter}
+AND SystemModstamp > {window_start}
+AND SystemModstamp <= {window_end}
+ORDER BY SystemModstamp ASC;
+============================================================
+5. SERVICEAPPOINTMENT
+Campos:
+Id
+WorkTypeId
+AppointmentNumber
+SchedStartTime
+ArrivalWindowStartTime
+TechnicianName__c
+TechniciansCompany__c
+CidadeNew__c
+ServiceAppointmentStatus__c
+StringPPoeUser__c
+FSL__Pinned__c
+HowManyTimes__c
+CaseNumberSA__c
+ParentRecordId
+ActualStartTime
+ActualEndTime
+Asset__c
+ONU_Signal__C
+FirstScheduleDateTime__c
+SuspensionReason__c
+Prospect__c
+SystemModstamp
+Consulta utilizada:
+SELECT [CAMPOS]
+FROM ServiceAppointment
+WHERE CreatedDate >= {created_date_filter}
+AND SystemModstamp > {window_start}
+AND SystemModstamp <= {window_end}
+ORDER BY SystemModstamp ASC;
+============================================================
+6. SERVICEAPPOINTMENTHISTORY
+Campos:
+Id
+CreatedById
+ServiceAppointmentId
+Field
+NewValue
+OldValue
+CreatedDate
+Consulta utilizada:
+SELECT [CAMPOS]
+FROM ServiceAppointmentHistory
+WHERE Field = 'SchedStartTime'
+AND CreatedDate >= {start_of_current_month_filter}
+AND CreatedDate > {window_start}
+AND CreatedDate <= {window_end}
+ORDER BY CreatedDate ASC;
+============================================================
+7. USER
+Campos:
+Id
+Name
+Department
+Title
+IsActive
+Email
+SystemModstamp
+Consulta utilizada:
+SELECT [CAMPOS]
+FROM User
+WHERE CreatedDate >= {created_date_filter}
+AND IsActive = true
+AND SystemModstamp > {window_start}
+AND SystemModstamp <= {window_end}
+ORDER BY SystemModstamp ASC;
+============================================================
+8. SERVICETERRITORY
+Campos:
+Id
+Name
+OperatingHoursId
+CreatedDate
+City
+SystemModstamp
+Consulta utilizada:
+SELECT [CAMPOS]
+FROM ServiceTerritory
+WHERE SystemModstamp > {window_start}
+AND SystemModstamp <= {window_end}
+ORDER BY SystemModstamp ASC;
+============================================================
+9. OLT__c
+Campos:
+Id
+Name
+SystemModstamp
+Consulta utilizada:
+SELECT [CAMPOS]
+FROM OLT__c
+WHERE SystemModstamp > {window_start}
+AND SystemModstamp <= {window_end}
+ORDER BY SystemModstamp ASC;
+============================================================
+10. CONTRACT
+Campos:
+Id
+AccountId
+Canal__c
+vlocity_cmt__ContractReferenceNumber__c
+SystemModstamp
+Consulta utilizada:
+SELECT [CAMPOS]
+FROM Contract
+WHERE CreatedDate >= {created_date_filter}
+AND SystemModstamp > {window_start}
+AND SystemModstamp <= {window_end}
+ORDER BY SystemModstamp ASC;
+
